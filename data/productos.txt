@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Café molido",
+    "categoria": "Abarrotes",
+    "precio": 2501,
+    "stock": 20
+  },
+  {
+    "id": 2,
+    "nombre": "Cuaderno universitario",
+    "categoria": "Papelería",
+    "precio": 1800,
+    "stock": 35
+  },
+  {
+    "id": 3,
+    "nombre": "Botella reutilizable",
+    "categoria": "Hogar",
+    "precio": 4200,
+    "stock": 10
+  }
+]

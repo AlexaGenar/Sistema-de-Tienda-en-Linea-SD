@@ -1,0 +1,15 @@
+{
+  "name": "sistema-tienda-en-linea",
+  "version": "1.0.0",
+  "description": "Sistema de tienda en línea para el curso de Sistemas Distribuidos",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.21.2"
+  }
+}
