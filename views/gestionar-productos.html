@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestionar productos | Tienda en Línea</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/gestionar-productos.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <a class="marca" href="/">Tienda en Línea</a>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a href="/">Inicio</a>
+      <a href="/productos">Productos</a>
+      <a aria-current="page" href="/gestionar-productos">Gestionar productos</a>
+      <a href="/compra">Compra</a>
+    </nav>
+  </header>
+  <main class="contenedor">
+    <section class="titulo-pagina">
+      <p class="sobrelinea">Administración</p>
+      <h1>Gestionar productos</h1>
+      <p>Registra artículos y mantén actualizado el inventario.</p>
+    </section>
+    <section class="seccion formulario-seccion" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Registrar producto</h2>
+      <form id="formulario-producto">
+        <div class="campos-formulario">
+          <label>Nombre<input name="nombre" type="text" required maxlength="120"></label>
+          <label>Categoría<input name="categoria" type="text" required maxlength="80"></label>
+          <label>Precio<input name="precio" type="number" required min="0.01" step="0.01"></label>
+          <label>Stock<input name="stock" type="number" required min="0" step="1"></label>
+        </div>
+        <div class="acciones-formulario">
+          <button id="guardar-producto" class="boton boton-principal" type="submit">Registrar producto</button>
+          <button id="cancelar-edicion" class="boton boton-secundario oculto" type="button">Cancelar edición</button>
+        </div>
+      </form>
+      <p id="estado-gestion" class="mensaje" role="status" aria-live="polite"></p>
+    </section>
+    <section class="seccion" aria-labelledby="titulo-tabla">
+      <div class="fila-titulo">
+        <h2 id="titulo-tabla">Productos registrados</h2>
+        <button id="actualizar-gestion" class="boton boton-secundario" type="button">Actualizar lista</button>
+      </div>
+      <div class="tabla-contenedor">
+        <table>
+          <thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead>
+          <tbody id="tabla-gestion"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="pie">Sistema de Tienda en Línea · Sistemas Distribuidos</footer>
+</body>
+</html>
