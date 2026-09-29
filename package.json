@@ -1,18 +1,15 @@
 {
-  "name": "sistema-de-tienda-en-linea-sd",
+  "name": "sistema-tienda-en-linea",
   "version": "1.0.0",
-  "description": "Aplicación web Node.js que consume servicios financieros",
+  "description": "Sistema de tienda en línea para el curso de Sistemas Distribuidos",
   "main": "app.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node app.js",
     "dev": "node --watch app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
-  },
-  "homepage": "https://github.com/AlexaGenar/Sistema-de-Tienda-en-Linea-SD#readme"
+    "axios": "^1.7.9",
+    "express": "^4.21.2"
+  }
 }
