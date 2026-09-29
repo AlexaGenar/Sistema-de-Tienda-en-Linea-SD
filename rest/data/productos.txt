@@ -19,5 +19,12 @@
     "categoria": "Hogar",
     "precio": 4200,
     "stock": 10
+  },
+  {
+    "id": 4,
+    "nombre": "iphone",
+    "categoria": "Tecnología",
+    "precio": 785000,
+    "stock": 2
   }
 ]
