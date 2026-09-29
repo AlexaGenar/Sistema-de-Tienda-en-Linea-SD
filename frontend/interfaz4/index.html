@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Operaciones especiales</title>
+
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>
+        Sistema de Tienda en Línea
+    </h1>
+
+    <p>
+        Sistemas Distribuidos - 2026
+    </p>
+
+</header>
+
+
+<nav>
+
+    <a href="/"> Inicio</a>
+
+    <a href="#">Consulta de información </a>
+
+    <a href="#">Gestión de información </a>
+
+    <a href="/operaciones"> Operaciones especiales </a>
+
+</nav>
+
+
+<main>
+
+
+    <!-- ==========================================
+         OPERACIONES ESPECIALES
+         ========================================== -->
+
+    <section>
+
+        <h2>
+            Operaciones especiales
+        </h2>
+
+        <p>
+            En esta sección podrá realizar operaciones
+            adicionales relacionadas con la compra.
+        </p>
+
+    </section>
+
+
+    <!-- ==========================================
+         COMPRA
+         ========================================== -->
+
+    <section>
+
+        <h2>
+            Compra
+        </h2>
+
+        <p>
+            En esta sección se realizará la compra
+            y se mostrará el resumen correspondiente.
+        </p>
+
+        <!--
+            Aquí se integrará posteriormente
+            la funcionalidad RPC de la compra.
+        -->
+
+    </section>
+
+
+    <!-- ==========================================
+         COMPRA INTERNACIONAL
+         ========================================== -->
+
+    <section>
+
+        <h2>
+            Compra internacional
+        </h2>
+
+        <p>
+            Si la compra es internacional, ingrese
+            el país para consultar su información.
+        </p>
+
+        <label for="nombrePais">
+            País:
+        </label>
+
+        <input
+            type="text"
+            id="nombrePais"
+            placeholder="Ejemplo: China"
+        >
+
+        <button onclick="consultarPais()">
+            Consultar país
+        </button>
+
+        <div id="pais"
+             class="contenedor">
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+    // ==================================================
+    // CONSULTAR PAÍS
+    // ==================================================
+
+    async function consultarPais() {
+
+        const nombre =
+            document.getElementById("nombrePais").value;
+
+        const contenedor =
+            document.getElementById("pais");
+
+        contenedor.innerHTML =
+            "<p>Consultando país...</p>";
+
+
+        try {
+
+            const respuesta =
+                await fetch("/api/paises");
+
+            const paises =
+                await respuesta.json();
+
+
+            contenedor.innerHTML = "";
+
+            let encontrado = false;
+
+
+            paises.forEach(pais => {
+
+                if (
+                    pais.name.toLowerCase() ===
+                    nombre.toLowerCase()
+                ) {
+
+                    encontrado = true;
+
+                    contenedor.innerHTML = `
+
+                        <div class="tarjeta">
+
+                            <h3>
+                                ${pais.emoji} ${pais.name}
+                            </h3>
+
+                            <p>
+                                <strong>Código:</strong>
+                                ${pais.code}
+                            </p>
+
+                            <p>
+                                <strong>Capital:</strong>
+                                ${pais.capital || "No disponible"}
+                            </p>
+
+                            <p>
+                                <strong>Moneda:</strong>
+                                ${pais.currency || "No disponible"}
+                            </p>
+
+                        </div>
+                    `;
+                }
+
+            });
+
+
+            if (!encontrado) {
+
+                contenedor.innerHTML =
+                    "<p>País no encontrado.</p>";
+            }
+
+
+        } catch (error) {
+
+            contenedor.innerHTML =
+                "<p>Error al obtener el país.</p>";
+
+            console.error(error);
+        }
+    }
+
+</script>
+
+
+</body>
+
+</html>
