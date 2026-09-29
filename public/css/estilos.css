@@ -127,3 +127,71 @@ tbody tr:last-child td { border-bottom: 0; }
   .campos-formulario { grid-template-columns: 1fr; }
   .resumen h2 { font-size: 18px; }
 }
+
+/* ==========================================
+   INTERFAZ 4 - OPERACIONES ESPECIALES
+   ========================================== */
+
+.tarjeta {
+    padding: 20px;
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+    color: var(--tinta);
+}
+
+.tarjeta p {
+    margin: 8px 0;
+}
+
+/* Campo para consultar país */
+#nombrePais {
+    width: 100%;
+    max-width: 400px;
+    height: 42px;
+    padding: 0 11px;
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    color: var(--tinta);
+    font: 14px 'Avenir Next', 'Trebuchet MS', sans-serif;
+}
+
+#nombrePais:focus {
+    outline: 2px solid var(--verde);
+    outline-offset: 1px;
+}
+
+/* Resultado de la consulta del país */
+#pais {
+    margin-top: 20px;
+}
+
+#pais .tarjeta {
+    border-left: 5px solid var(--verde);
+}
+
+/* Botón utilizado en la consulta */
+button {
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background: var(--verde);
+    font: 600 14px 'Avenir Next', 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #10563a;
+}
+
+.seccion {
+    margin-top: 38px;
+    padding: 25px;
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+}

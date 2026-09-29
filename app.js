@@ -1,35 +1,48 @@
 const express = require('express');
 const path = require('path');
-const productosRoutes = require('./routes/productosRoutes');
+const productosRoutes = require('./rest/routes/productosRoutes');
+const graphqlRoutes = require("./web-services/routes/graphqlRoutes");
 
 const app = express();
 const puerto = 3000;
-const carpetaVistas = path.join(__dirname, 'views');
+
 
 app.use(express.json());
+
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/api/productos', productosRoutes);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(carpetaVistas, 'index.html'));
+// Rutas relacionadas con GraphQL
+app.use("/api", graphqlRoutes);
+ 
+
+// Página principal
+app.get("/", (req, res) => {res.sendFile(path.join( __dirname,"frontend","interfaz1","index.html")
+    );
 });
 
-app.get('/productos', (req, res) => {
-  res.sendFile(path.join(carpetaVistas, 'productos.html'));
+app.get('/productos', (req, res) => {res.sendFile(path.join( __dirname,"frontend","interfaz2","index.html")
+    );
 });
 
-app.get('/gestionar-productos', (req, res) => {
-  res.sendFile(path.join(carpetaVistas, 'gestionar-productos.html'));
+app.get('/gestionar-productos', (req, res) => {res.sendFile(path.join( __dirname,"frontend","interfaz3","index.html")
+    );
 });
 
-app.get('/compra', (req, res) => {
-  res.sendFile(path.join(carpetaVistas, 'compra.html'));
+// Servir la interfaz
+app.use(express.static( path.join(__dirname, "frontend", "interfaz1")));
+
+app.get("/operaciones", (req, res) => {res.sendFile(path.join( __dirname,"frontend","interfaz4","index.html")
+    );
 });
+ 
 
 app.use((error, req, res, next) => {
   if (error.type === 'entity.parse.failed') {
     return res.status(400).json({ mensaje: 'El cuerpo de la solicitud debe ser JSON válido.' });
   }
+
 
   console.error(error);
   return res.status(500).json({ mensaje: 'Ocurrió un error interno al procesar la solicitud.' });
