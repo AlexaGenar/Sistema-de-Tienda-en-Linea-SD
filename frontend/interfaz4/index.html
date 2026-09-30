@@ -6,13 +6,11 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Operaciones especiales</title>
 
-    <link rel="stylesheet"
-          href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilos.css">
 
 </head>
 
@@ -20,157 +18,196 @@
 <body>
 
 
-<header>
+    <header class="encabezado">
 
-    <h1>
-        Sistema de Tienda en Línea
-    </h1>
+        <h1>
+            Sistema de Tienda en Línea
+        </h1>
 
-    <p>
-        Sistemas Distribuidos - 2026
-    </p>
+        <p>
+            Sistemas Distribuidos - 2026
+        </p>
 
-</header>
-
-
-<nav>
-
-    <a href="/"> Inicio</a>
-
-    <a href="#">Consulta de información </a>
-
-    <a href="#">Gestión de información </a>
-
-    <a href="/operaciones"> Operaciones especiales </a>
-
-</nav>
+    </header>
 
 
-<main>
+    <nav class="navegacion">
+
+        <a href="/"> Inicio</a>
+
+        <a href="/productos">Consulta de información </a>
+
+        <a href="/gestionar-productos">Gestión de información </a>
+
+        <a href="/operaciones"> Operaciones especiales </a>
+
+    </nav>
 
 
-    <!-- ==========================================
+    <main class="contenedor">
+
+
+        <!-- ==========================================
          OPERACIONES ESPECIALES
          ========================================== -->
 
-    <section>
+        <section>
 
-        <h2>
-            Operaciones especiales
-        </h2>
+            <h2>
+                Operaciones especiales
+            </h2>
 
-        <p>
-            En esta sección podrá realizar operaciones
-            adicionales relacionadas con la compra.
-        </p>
+            <p>
+                En esta sección podrá realizar operaciones
+                adicionales relacionadas con la compra.
+            </p>
 
-    </section>
-
-
-    <!-- ==========================================
-         COMPRA
-         ========================================== -->
-
-    <section>
-
-        <h2>
-            Compra
-        </h2>
-
-        <p>
-            En esta sección se realizará la compra
-            y se mostrará el resumen correspondiente.
-        </p>
-
-        <!--
-            Aquí se integrará posteriormente
-            la funcionalidad RPC de la compra.
-        -->
-
-    </section>
+        </section>
 
 
-    <!-- ==========================================
+        <!-- ==========================================
+     COMPRA
+     ========================================== -->
+
+        <section class="titulo-pagina">
+
+            <h2>
+                Pago con criptomoneda
+            </h2>
+
+            <p>
+                Consulte el costo de la red para estimar
+                la comisión de la operación.
+            </p>
+
+            <h3>
+                Productos disponibles
+            </h3>
+
+            <div id="productos-compra">
+                <p>Cargando productos...</p>
+            </div>
+
+            <div>
+                <h3>
+                    Resumen de compra
+                </h3>
+
+                <p>
+                    Total:
+                    <strong id="total-compra">₡0</strong>
+                </p>
+            </div>
+
+            <div>
+                <h3>
+                    Método de pago
+                </h3>
+
+                <label>
+                    <input type="radio" name="metodo-pago" value="normal" checked>
+                    Pago normal
+                </label>
+
+                <label>
+                    <input type="radio" name="metodo-pago" value="ethereum">
+                    Ethereum
+                </label>
+            </div>
+
+            <div id="informacion-ethereum" hidden>
+
+                <h3>
+                    Pago con Ethereum
+                </h3>
+
+                <p>
+                    Comisión estimada de red:
+                    <strong id="comision-ethereum">
+                        Pendiente
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
          COMPRA INTERNACIONAL
          ========================================== -->
 
-    <section>
+        <section class="titulo-pagina">
 
-        <h2>
-            Compra internacional
-        </h2>
+            <h2>
+                Información de la operación
+            </h2>
 
-        <p>
-            Si la compra es internacional, ingrese
-            el país para consultar su información.
-        </p>
+            <p>
+                Consulte información del país relacionado con la operación.
+            </p>
 
-        <label for="nombrePais">
-            País:
-        </label>
+            <label for="nombrePais">
+                País:
+            </label>
 
-        <input
-            type="text"
-            id="nombrePais"
-            placeholder="Ejemplo: China"
-        >
+            <input type="text" id="nombrePais" placeholder="Ejemplo: China">
 
-        <button onclick="consultarPais()">
-            Consultar país
-        </button>
+            <button onclick="consultarPais()">
+                Consultar país
+            </button>
 
-        <div id="pais"
-             class="contenedor">
-        </div>
+            <div id="pais" class="contenedor">
+            </div>
 
-    </section>
+        </section>
 
 
-</main>
+    </main>
 
 
-<script>
+    <script>
 
-    // ==================================================
-    // CONSULTAR PAÍS
-    // ==================================================
+        // ==================================================
+        // CONSULTAR PAÍS
+        // ==================================================
 
-    async function consultarPais() {
+        async function consultarPais() {
 
-        const nombre =
-            document.getElementById("nombrePais").value;
+            const nombre =
+                document.getElementById("nombrePais").value;
 
-        const contenedor =
-            document.getElementById("pais");
+            const contenedor =
+                document.getElementById("pais");
 
-        contenedor.innerHTML =
-            "<p>Consultando país...</p>";
-
-
-        try {
-
-            const respuesta =
-                await fetch("/api/paises");
-
-            const paises =
-                await respuesta.json();
+            contenedor.innerHTML =
+                "<p>Consultando país...</p>";
 
 
-            contenedor.innerHTML = "";
+            try {
 
-            let encontrado = false;
+                const respuesta =
+                    await fetch("/api/paises");
+
+                const paises =
+                    await respuesta.json();
 
 
-            paises.forEach(pais => {
+                contenedor.innerHTML = "";
 
-                if (
-                    pais.name.toLowerCase() ===
-                    nombre.toLowerCase()
-                ) {
+                let encontrado = false;
 
-                    encontrado = true;
 
-                    contenedor.innerHTML = `
+                paises.forEach(pais => {
+
+                    if (
+                        pais.name.toLowerCase() ===
+                        nombre.toLowerCase()
+                    ) {
+
+                        encontrado = true;
+
+                        contenedor.innerHTML = `
 
                         <div class="tarjeta">
 
@@ -195,29 +232,30 @@
 
                         </div>
                     `;
+                    }
+
+                });
+
+
+                if (!encontrado) {
+
+                    contenedor.innerHTML =
+                        "<p>País no encontrado.</p>";
                 }
 
-            });
 
-
-            if (!encontrado) {
+            } catch (error) {
 
                 contenedor.innerHTML =
-                    "<p>País no encontrado.</p>";
+                    "<p>Error al obtener el país.</p>";
+
+                console.error(error);
             }
-
-
-        } catch (error) {
-
-            contenedor.innerHTML =
-                "<p>Error al obtener el país.</p>";
-
-            console.error(error);
         }
-    }
 
-</script>
+    </script>
 
+    <script src="/js/compra.js"></script>
 
 </body>
 

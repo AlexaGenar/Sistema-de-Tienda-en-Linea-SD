@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,23 @@
   <link rel="stylesheet" href="/css/estilos.css">
   <script src="/js/productos.js" defer></script>
 </head>
+
 <body>
   <header class="encabezado">
     <a class="marca" href="/">Tienda en Línea</a>
-    <nav class="navegacion" aria-label="Navegación principal">
+
+    <nav class="navegacion">
+
       <a href="/">Inicio</a>
-      <a aria-current="page" href="/productos">Productos</a>
-      <a href="/gestionar-productos">Gestionar productos</a>
-      <a href="/compra">Compra</a>
+
+      <a href="/productos">Consulta de información</a>
+
+      <a aria-current="page" href="/gestionar-productos">Gestión de información</a>
+
+      <a href="/operaciones">Operaciones especiales</a>
+
     </nav>
+
   </header>
   <main class="contenedor">
     <section class="titulo-pagina fila-titulo">
@@ -29,11 +38,19 @@
     <p id="estado-catalogo" class="mensaje" role="status" aria-live="polite">Cargando productos…</p>
     <div class="tabla-contenedor">
       <table>
-        <thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
         <tbody id="lista-productos"></tbody>
       </table>
     </div>
   </main>
   <footer class="pie">Sistema de Tienda en Línea · Sistemas Distribuidos</footer>
 </body>
+
 </html>
