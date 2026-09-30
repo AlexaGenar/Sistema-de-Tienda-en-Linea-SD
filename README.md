@@ -168,4 +168,3 @@ Pendiente:
 
 Completado en esta entrega: estructura compartida, cuatro interfaces base y REST de productos con persistencia en `data/productos.txt`.
 
-Pendiente: RPC de compra de Sofía y Servicio Web GraphQL de Génesis. No están implementados en esta entrega.
