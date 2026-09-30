@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const productosRoutes = require('./routes/productosRoutes');
+const rpcRoutes = require('./routes/rpcRoutes');
 
 const app = express();
 const puerto = 3000;
@@ -9,6 +10,7 @@ const carpetaVistas = path.join(__dirname, 'views');
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/productos', productosRoutes);
+app.use("/", rpcRoutes);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(carpetaVistas, 'index.html'));

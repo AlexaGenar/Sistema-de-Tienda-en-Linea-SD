@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compra | Tienda en Línea</title>
   <link rel="stylesheet" href="/css/estilos.css">
 </head>
+
 <body>
   <header class="encabezado">
     <a class="marca" href="/">Tienda en Línea</a>
@@ -22,11 +24,45 @@
       <h1>Selección de productos</h1>
       <p>Esta interfaz está reservada para la integración de compra asignada a Sofía.</p>
     </section>
-    <section class="seccion pendiente">
-      <h2>Operación RPC pendiente</h2>
-      <p>Aquí se integrarán la selección de productos y el cálculo del total mediante RPC. La operación RPC todavía no está implementada.</p>
+    <section class="seccion">
+      <h2>Productos disponibles</h2>
+
+      <div id="productos-compra">
+        <p>Cargando productos...</p>
+      </div>
+
+      <div>
+        <h2>Resumen de compra</h2>
+        <p>
+          Total:
+          <strong id="total-compra">₡0</strong>
+        </p>
+      </div>
+      <div>
+        <h2>Método de pago</h2>
+
+        <label>
+          <input type="radio" name="metodo-pago" value="normal" checked>
+          Pago normal
+        </label>
+
+        <label>
+          <input type="radio" name="metodo-pago" value="ethereum">
+          Ethereum
+        </label>
+      </div>
+
+      <div id="informacion-ethereum" hidden>
+        <h2>Pago con Ethereum</h2>
+        <p>
+          Comisión estimada de red:
+          <strong id="comision-ethereum">Pendiente</strong>
+        </p>
+      </div>
     </section>
   </main>
   <footer class="pie">Sistema de Tienda en Línea · Sistemas Distribuidos</footer>
+  <script src="/js/compra.js"></script>
 </body>
+
 </html>
