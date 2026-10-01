@@ -21,29 +21,15 @@
 
 
 <header class="encabezado">
-
-    <h1>
-        Sistema de Tienda en Línea
-    </h1>
-
-    <p>
-        Sistemas Distribuidos - 2026
-    </p>
-
+    <a class="marca" href="/">Sistema de Tienda en Línea</a>
+    <p class="submarca">Sistemas Distribuidos - 2026</p>
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a aria-current="page" href="/">Inicio</a>
+        <a href="/productos">Consulta de información</a>
+        <a href="/gestionar-productos">Gestión de información</a>
+        <a href="/operaciones">Operaciones especiales</a>
+    </nav>
 </header>
-
-
-<nav class="navegacion">
-
-    <a href="/">Inicio</a>
-
-    <a href="/productos">Consulta de información</a>
-
-    <a  href="/gestionar-productos">Gestión de información</a>
-
-    <a href="/operaciones">Operaciones especiales</a>
-
-</nav>
 
 
 <main class="contenedor">
@@ -53,33 +39,26 @@
          RESUMEN DEL SISTEMA
          ========================================== -->
 
-    <section class="seccion">
-
-        <h2>Inicio</h2>
-
-        <p>
-            Bienvenido al Sistema de Tienda en Línea.
-        </p>
-
-        <p>
-            Desde esta aplicación podrá consultar productos,
-            gestionar productos y realizar compras.
-        </p>
-
-    
-
-     <!-- ==========================================
-         INFORMACION RELEVANTE
-         ========================================== -->
-
-        <h3>Información relevante</h3>
-
-        <p>
-           QUE PONEMOS aca
-        </p>
-
+    <section class="titulo-pagina">
+        <p class="sobrelinea">Sistema de Tienda en Línea</p>
+        <h1>Inicio</h1>
+        <p>Bienvenido al Sistema de Tienda en Línea.</p>
+        <p>Desde esta aplicación podrá consultar productos,
+            gestionar productos y realizar compras.</p>
     </section>
 
+    <section class="seccion">
+        <h2>Información relevante</h2>
+        <article class="tarjeta">
+            <h3>Integración de Ethereum mediante RPC</h3>
+            <p>Como parte de las operaciones especiales de la tienda, se integró Ethereum mediante RPC para obtener una estimación de la comisión de red cuando el usuario selecciona este método de pago.</p>
+            <p>Es importante señalar que la aplicación no realiza una transacción real con Ethereum. La funcionalidad utiliza los datos de una operación únicamente para estimar el gas necesario y, junto con el precio del gas obtenido de la red, calcular una comisión aproximada que se muestra al usuario.</p>
+            <p>Esta implementación permitió incorporar RPC con un propósito relacionado directamente con el proceso de compra, sin necesidad de realizar transferencias reales de criptomonedas.</p>
+        </article>
+    </section>
+
+</main>
+<footer class="pie">Sistema de Tienda en Línea · Sistemas Distribuidos</footer>
 </body>
 
 </html>

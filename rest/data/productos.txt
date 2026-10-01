@@ -3,7 +3,7 @@
     "id": 1,
     "nombre": "Café molido",
     "categoria": "Abarrotes",
-    "precio": 2501,
+    "precio": 2500,
     "stock": 20
   },
   {
