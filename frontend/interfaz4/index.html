@@ -140,11 +140,12 @@
         <section class="titulo-pagina">
 
             <h2>
-                Información de la operación
+                Información de la operación internacional
             </h2>
 
             <p>
-                Consulte información del país relacionado con la operación.
+                Consulte información del país asociado a la operación de compra,
+                 como su código y moneda.
             </p>
 
             <label for="nombrePais">
@@ -211,24 +212,22 @@
 
                         <div class="tarjeta">
 
-                            <h3>
-                                ${pais.emoji} ${pais.name}
-                            </h3>
-
                             <p>
                                 <strong>Código:</strong>
                                 ${pais.code}
                             </p>
 
                             <p>
-                                <strong>Capital:</strong>
-                                ${pais.capital || "No disponible"}
-                            </p>
-
-                            <p>
                                 <strong>Moneda:</strong>
                                 ${pais.currency || "No disponible"}
                             </p>
+ <p>
+                                <strong>Capital:</strong>
+                                ${pais.capital || "No disponible"}
+                            </p>
+                            <h3>
+                                ${pais.emoji} ${pais.name}
+                            </h3>
 
                         </div>
                     `;
