@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const productosRoutes = require('./rest/routes/productosRoutes');
-const rpcRoutes = require('./rest/routes/rpcRoutes');
+const rpcRoutes = require('./rpc/routes/rpcRoutes');
 const graphqlRoutes = require('./web-services/routes/graphqlRoutes');
 
 const app = express();
